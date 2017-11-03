@@ -1,8 +1,19 @@
+var cors = require('cors')
 var express = require('express')
 var app = express()
 
-app.get('/', (req, res) => {
-    res.send('hello world!')
+var posts = [{
+    message: 'hello'
+},
+{
+    message: 'hello again'
+}
+]
+
+app.use(cors())
+
+app.get('/posts', (req, res) => {
+    res.send(posts)
 })
 
 var port = 3000
